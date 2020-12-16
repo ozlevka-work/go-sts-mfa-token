@@ -13,9 +13,9 @@
 		// using the default "vscode" user.
 		// "-u", "root",
 
-		"--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined",
-		"-v", "${localEnv:HOME}/.aws:/home/vscode/.aws",
-        "-e", "AWS_PROFILE=2auth"
+		"--cap-add=SYS_PTRACE", "--security-opt", "seccomp=unconfined"
+		//"-v", "${localEnv:HOME}/.aws:/home/vscode/.aws",
+        //"-e", "AWS_PROFILE=2auth"
 	],
 
 	// Use 'settings' to set *default* container specific settings.json values on container create. 

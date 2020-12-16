@@ -14,18 +14,15 @@ var rootCommand = &cobra.Command{
 	Long: "Used for running operation against AWS cloud",
 
 	RunE: func(command *cobra.Command, args []string) error {
-		test, err := command.Flags().GetString("test")
-		if err != nil {
-			return err
-		} 
-			
-		fmt.Printf("Value of test %s\n", test)
 		return nil
 	},
 }
 
 func init() {
-	rootCommand.PersistentFlags().StringP("test", "t", "AAAA", "Used only for test")
+	rootCommand.PersistentFlags().StringP("profile", "p", "default", "Your AWS profile in config file")
+	rootCommand.PersistentFlags().StringP("awskey", "k", "", "AWS Key ID")
+	rootCommand.PersistentFlags().StringP("awssecret", "s", "", "AWS Secret")
+	rootCommand.AddCommand(StsTokenCommand)
 }
 
 // Execute Used for execute root command
